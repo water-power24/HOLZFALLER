@@ -203,3 +203,66 @@ options.forEach((option) => {
 });
 const savedLanguage = localStorage.getItem("language") || "ru";
 setLanguage(savedLanguage);
+
+// ====== Плавный скролл (кастомный) ======
+function smoothScrollTo(targetY, duration = 600) {
+  const startY = window.pageYOffset;
+  const distance = targetY - startY;
+  const startTime = performance.now();
+
+  function step(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // easeInOutCubic
+    const ease =
+      progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    window.scrollTo(0, startY + distance * ease);
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+  requestAnimationFrame(step);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
+
+      const header = document.querySelector(".header");
+      const headerHeight = header ? header.offsetHeight : 0;
+      const targetRect = target.getBoundingClientRect();
+      const offsetTop = targetRect.top + window.pageYOffset - headerHeight - 20;
+
+      smoothScrollTo(offsetTop, 700);
+    });
+  });
+});
+
+// ====== КНОПКА "НАВЕРХ" ======
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+if (scrollTopBtn) {
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 300) {
+      scrollTopBtn.classList.add("visible");
+    } else {
+      scrollTopBtn.classList.remove("visible");
+    }
+  });
+
+  scrollTopBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (typeof smoothScrollTo === "function") {
+      smoothScrollTo(0, 600);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+}

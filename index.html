@@ -15,13 +15,15 @@
   <body>
     <header class="header">
       <div class="header__inner container">
-        <a href="#" class="header__logo">HOLZFÄLLER</a>
+        <a href="#home" class="header__logo">HOLZFÄLLER</a>
         <nav class="header__nav" aria-label="Основная навигация">
-          <a href="#" class="header__link" data-i18n="about">О нас</a>
-          <a href="#" class="header__link" data-i18n="catalog">Каталог</a>
+          <a href="#about" class="header__link" data-i18n="about">О нас</a>
+          <a href="#catalog" class="header__link" data-i18n="catalog"
+            >Каталог</a
+          >
         </nav>
         <div class="header__actions">
-          <a href="#" class="btn btn--contacts" data-i18n="contacts">
+          <a href="#contacts" class="btn btn--contacts" data-i18n="contacts">
             Контакты
             <svg
               class="btn__icon"
@@ -101,7 +103,7 @@
 
     <main>
       <!-- Hero -->
-      <section class="hero">
+      <section class="hero" id="home">
         <div class="hero__overlay"></div>
         <div class="hero__content container">
           <p class="hero__text" data-i18n="heroText">
@@ -133,7 +135,7 @@
       </section>
 
       <!-- Contacts -->
-      <div class="title dark-green__bc" data-i18n="contactTitle">
+      <div class="title dark-green__bc" data-i18n="contactTitle" id="contacts">
         Хотите связаться с нами?
       </div>
       <section class="contacts">
@@ -181,9 +183,7 @@
               </h2>
               <div class="contacts-card__phone">
                 <span data-i18n="phone">Номер телефона:</span>
-                <a href="tel:+79192707805" 
-                  >+7 (919) 270-78-05</a
-                >
+                <a href="tel:+79192707805">+7 (919) 270-78-05</a>
                 <img
                   src="images/phone.svg"
                   alt=""
@@ -215,7 +215,11 @@
       </section>
 
       <!-- Supplier -->
-      <div class="title padding-top dark-green__bc" data-i18n="supplierTitle">
+      <div
+        class="title padding-top dark-green__bc"
+        data-i18n="supplierTitle"
+        id="about"
+      >
         Мы — ваш надёжный поставщик
       </div>
       <section class="supplier">
@@ -255,7 +259,7 @@
       </div>
 
       <!-- Catalog -->
-      <div class="title" data-i18n="catalogTitle">Каталог</div>
+      <div class="title" data-i18n="catalogTitle" id="catalog">Каталог</div>
       <section class="catalog">
         <div class="catalog__wrapper">
           <img src="images/sale.png" alt="SALE" class="catalog__sale" />
@@ -334,7 +338,9 @@
       </section>
 
       <!-- Reviews -->
-      <div class="title padding-top" data-i18n="reviewsTitle">Отзывы о нас</div>
+      <div class="title padding-top" data-i18n="reviewsTitle" id="reviews">
+        Отзывы о нас
+      </div>
       <section class="reviews">
         <div class="container">
           <div class="reviews__grid">
@@ -469,10 +475,10 @@
               </div>
               <div class="footer__column">
                 <h3 data-i18n="navigation">Навигация</h3>
-                <a href="#" data-i18n="home">Главная</a>
-                <a href="#" data-i18n="catalog">Каталог</a>
-                <a href="#" data-i18n="about">О нас</a>
-                <a href="#" data-i18n="reviews">Отзывы</a>
+                <a href="#home" data-i18n="home">Главная</a>
+                <a href="#catalog" data-i18n="catalog">Каталог</a>
+                <a href="#about" data-i18n="about">О нас</a>
+                <a href="#reviews" data-i18n="reviews">Отзывы</a>
               </div>
               <div class="footer__column">
                 <h3 data-i18n="footerContacts">Контакты</h3>
@@ -492,7 +498,20 @@
         </div>
       </footer>
     </main>
-
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Вернуться наверх">
+      <svg
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+    </button>
     <script src="js/main.js"></script>
   </body>
 </html>
