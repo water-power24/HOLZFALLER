@@ -6,7 +6,7 @@
   --color-black: #1a1a1a;
   --color-darkgreen: #333d29;
   --font-main: "Montserrat", sans-serif;
-  --header-width: 1400px;
+  --header-width: 1480px;
   --header-height: 80px;
   --container-width: 1400px;
   --radius-header: 24px;
@@ -95,6 +95,7 @@ ul {
   text-shadow: 0 3px 0 var(--color-orange);
   transition: var(--transition);
 }
+
 .header__logo:hover {
   transform: translateY(-2px) scale(1.02);
 }
