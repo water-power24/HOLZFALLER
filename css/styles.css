@@ -164,6 +164,8 @@ ul {
   color: var(--color-black);
   font-size: 0.9rem;
   box-shadow: 0 3px 0 var(--color-orange);
+  white-space: nowrap;
+  overflow: visible;
 }
 .btn--contacts:hover {
   transform: translateY(-1px);
@@ -190,6 +192,10 @@ ul {
 }
 .btn__icon {
   flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* ===== LANGUAGE SWITCHER ===== */
