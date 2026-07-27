@@ -80,6 +80,10 @@ ul {
   right: 0;
   z-index: 100;
 }
+/* .header__inner {
+  background: var(--color-green);
+} */
+
 .header__inner {
   display: flex;
   align-items: center;
@@ -88,9 +92,19 @@ ul {
   height: var(--header-height);
   margin: 0 auto;
   padding: 0 32px;
-  background: var(--color-green);
+  background: rgba(107, 112, 92, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-header);
+  transition: 0.3s;
 }
+
+.header.scrolled .header__inner {
+  background: #333d29;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
 .header__logo {
   width: 235px;
   font-size: 32px;
@@ -339,7 +353,7 @@ ul {
   overflow: hidden;
 }
 .ticker__content {
-  padding-top: 28px;
+  padding-top: 34px;
   display: flex;
   width: max-content;
   gap: 56px;
@@ -686,7 +700,7 @@ ul {
 .catalog {
   display: flex;
   justify-content: center;
-  margin: 80px 0;
+  margin-top: 80px;
 }
 .catalog__wrapper {
   position: relative;
@@ -960,6 +974,7 @@ ul {
 }
 
 /* ===== SELECTION (общий) ===== */
+.footer::selection,
 .reviews::selection,
 .catalog__wrapper::selection,
 .header__logo::selection,
@@ -972,6 +987,8 @@ ul {
   background: #ffc300;
   color: #1a1a1a;
 }
+
+.footer::-moz-selection,
 .reviews::-moz-selection,
 .catalog__wrapper::-moz-selection,
 .header__logo::-moz-selection,
@@ -1122,4 +1139,27 @@ ul {
 .scroll-top svg {
   stroke: var(--color-darkgreen);
   stroke-width: 2.5;
+}
+
+/* ===== СКРОЛЛБАР ===== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-darkgreen);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-yellow);
+  border-radius: 6px;
+  border: 2px solid var(--color-darkgreen);
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background: var(--color-orange);
+  border-color: var(--color-darkgreen);
 }
