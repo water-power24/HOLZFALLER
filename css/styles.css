@@ -5,7 +5,8 @@
   --color-white: #ffffff;
   --color-black: #1a1a1a;
   --color-darkgreen: #333d29;
-  --font-main: "Montserrat", sans-serif;
+  --font-main: "Manrope", sans-serif;
+  --font-title: "Oswald", sans-serif;
   --header-width: 1480px;
   --header-height: 80px;
   --container-width: 1400px;
@@ -68,8 +69,11 @@ ul {
   padding-top: 120px;
   padding-bottom: 100px;
   text-align: center;
-  font-size: 48px;
+  font-family: var(--font-title);
+  font-size: 56px;
   font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* ===== HEADER ===== */
@@ -80,9 +84,6 @@ ul {
   right: 0;
   z-index: 100;
 }
-/* .header__inner {
-  background: var(--color-green);
-} */
 
 .header__inner {
   display: flex;
@@ -108,10 +109,13 @@ ul {
 .header__logo {
   width: 235px;
   font-size: 32px;
-  font-weight: 800;
   color: var(--color-yellow);
   text-shadow: 0 3px 0 var(--color-orange);
   transition: var(--transition);
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .header__logo:hover {
@@ -129,10 +133,13 @@ ul {
   justify-self: center;
 }
 .header__link {
-  font-size: 32px;
-  font-weight: 700;
   padding-bottom: 6px;
   transition: var(--transition);
+  font-family: var(--font-title);
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
 }
 .header__link:hover {
   border-bottom: 3px solid #ffc300;
@@ -151,11 +158,13 @@ ul {
   justify-content: center;
   gap: 8px;
   user-select: none;
-  font-weight: 700;
   border-radius: var(--radius-pill);
   transition:
     transform 0.15s,
     box-shadow 0.15s;
+  font-family: var(--font-title);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
 }
 .btn--contacts {
   width: 264px;
@@ -330,7 +339,9 @@ ul {
   font-weight: 400;
 }
 .hero__text strong {
-  font-weight: 800;
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 /* ===== TICKER ===== */
@@ -571,6 +582,7 @@ ul {
 }
 .contacts-card__title {
   text-align: center;
+  font-family: var(--font-title);
   font-size: 64px;
   font-weight: 800;
   margin-bottom: 55px;
@@ -579,7 +591,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 18px;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 }
 .contacts-card__phone span {
   font-size: 28px;
@@ -639,7 +651,7 @@ ul {
 .contacts-card__logs {
   position: absolute;
   right: 500px;
-  top: 1720px;
+  top: 1730px;
   width: 330px;
   height: 250px;
   pointer-events: none;
@@ -675,6 +687,7 @@ ul {
   color: #000;
 }
 .supplier__logo {
+  font-family: var(--font-title);
   position: absolute;
   right: 80px;
   bottom: 35px;
@@ -725,6 +738,7 @@ ul {
   pointer-events: none;
 }
 .catalog__table {
+  font-family: var(--font-title);
   width: calc(100% - 60px);
   margin: 20px 30px;
   border-collapse: collapse;
@@ -921,6 +935,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  font-family: var(--font-title);
 }
 .footer__column h3 {
   margin-bottom: 10px;
@@ -1048,7 +1063,10 @@ ul {
     width: 24px;
   }
   .ticker__content span {
-    font-size: 0.875rem;
+    font-family: var(--font-title);
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
   }
 }
 
