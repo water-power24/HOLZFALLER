@@ -997,99 +997,6 @@ ul {
   color: #1a1a1a;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .header__nav {
-    display: none;
-  }
-  .header__inner {
-    padding-inline: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .header {
-    top: 12px;
-  }
-  .header__inner {
-    min-height: 60px;
-    padding: 10px 16px;
-    border-radius: 20px;
-  }
-  .header__logo {
-    font-size: 1rem;
-  }
-  .btn--contacts {
-    padding: 10px 16px;
-    font-size: 0.8rem;
-  }
-  .lang-switcher__label {
-    display: none;
-  }
-  .hero__content {
-    gap: 24px;
-    padding-bottom: 100px;
-  }
-  .ticker {
-    height: 44px;
-  }
-  .ticker__edge {
-    width: 24px;
-  }
-  .ticker__content span {
-    font-family: var(--font-title);
-    font-size: 30px;
-    font-weight: 600;
-    letter-spacing: 2px;
-  }
-}
-
-@media (max-width: 1100px) {
-  .reviews__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-}
-
-@media (max-width: 700px) {
-  .reviews {
-    padding: 50px 0 70px;
-  }
-  .reviews__grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .review-card {
-    padding: 28px 24px 24px;
-    border-radius: 20px;
-  }
-  .review-card__text {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  .review-card__avatar {
-    width: 44px;
-    height: 44px;
-    font-size: 15px;
-    flex: 0 0 44px;
-  }
-  .review-card__name {
-    font-size: 16px;
-  }
-  .review-card__stars {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 400px) {
-  .review-card {
-    padding: 20px 18px 20px;
-  }
-  .review-card__text {
-    font-size: 15px;
-  }
-}
-
 /* ===== КНОПКА "НАВЕРХ" ===== */
 .scroll-top {
   position: fixed;
@@ -1160,4 +1067,745 @@ ul {
 ::-webkit-scrollbar-thumb:active {
   background: var(--color-orange);
   border-color: var(--color-darkgreen);
+}
+
+/* ============================================================
+   АДАПТИВНАЯ ВЁРСТКА (единый блок)
+   ============================================================ */
+
+/* ---- Планшеты и маленькие ноутбуки (до 1200px) ---- */
+@media (max-width: 1200px) {
+  .header__nav {
+    gap: 60px;
+    padding-right: 40px;
+  }
+  .header__link {
+    font-size: 24px;
+  }
+  .btn--contacts {
+    width: 200px;
+    font-size: 0.8rem;
+  }
+  .hero__content {
+    max-width: 90%;
+    padding-block: calc(var(--header-height) + 40px) 80px;
+  }
+  .title {
+    font-size: 42px;
+    padding: 80px 0 60px;
+  }
+  .contact-block {
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .notebook {
+    flex: 0 0 100%;
+    max-width: 548px;
+    height: auto;
+    min-height: 500px;
+  }
+  .contacts-card {
+    width: 100%;
+    max-width: 807px;
+    height: auto;
+    min-height: 600px;
+    padding: 30px;
+  }
+  .contacts-card__title {
+    font-size: 48px;
+    margin-bottom: 30px;
+  }
+  .contacts-card__phone span,
+  .contacts-card__phone a {
+    font-size: 22px;
+  }
+  .contacts-card__text h3 {
+    font-size: 26px;
+  }
+  .contacts-card__text p {
+    font-size: 22px;
+  }
+  .contacts-btn {
+    width: 220px;
+    height: 60px;
+    font-size: 20px;
+  }
+  .supplier__container,
+  .supplier__card {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .supplier__card {
+    height: auto;
+    padding: 40px 50px;
+  }
+  .supplier__text {
+    font-size: 28px;
+    max-width: 100%;
+  }
+  .supplier__logo {
+    position: static;
+    text-align: right;
+    margin-top: 20px;
+  }
+  .image {
+    width: 70%;
+    height: auto;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: -50px;
+  }
+  .image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .catalog__wrapper {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+  .catalog__table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -15px;
+    padding: 0 15px;
+  }
+  .catalog__table {
+    width: 100%;
+    min-width: 700px;
+    margin: 0;
+  }
+  .catalog__table th {
+    font-size: 32px;
+    padding: 15px 10px;
+  }
+  .catalog__table td {
+    font-size: 20px;
+    padding: 12px 10px;
+  }
+  .catalog__sale {
+    width: 150px;
+    height: 150px;
+    top: -5px;
+    left: -5px;
+  }
+  .reviews__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .footer__top {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .footer__brand {
+    max-width: 100%;
+  }
+  .footer__column {
+    flex: 1 1 200px;
+  }
+  .footer__card {
+    padding: 40px;
+  }
+  .scroll-top {
+    width: 80px;
+    height: 80px;
+    bottom: 40px;
+    right: 40px;
+  }
+  .scroll-top svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* ---- Планшеты (до 1100px) — только отзывы в 2 колонки ---- */
+@media (max-width: 1100px) {
+  .reviews__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+/* ---- Средние экраны (до 900px) — скрыть навигацию ---- */
+@media (max-width: 900px) {
+  .header__nav {
+    display: none;
+  }
+  .header__inner {
+    padding-inline: 20px;
+  }
+}
+
+/* ---- Мобильные устройства (до 768px) ---- */
+@media (max-width: 768px) {
+  .header {
+    top: 12px;
+  }
+  .header__inner {
+    padding: 0 16px;
+    min-height: 60px;
+    border-radius: 20px;
+  }
+  .header__logo {
+    font-size: 24px;
+    width: auto;
+  }
+  .header__nav {
+    display: none;
+  }
+  .btn--contacts {
+    width: auto;
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    height: 40px;
+    gap: 4px;
+  }
+  .btn--contacts .btn__icon {
+    width: 14px;
+    height: 14px;
+  }
+  .lang-switcher__label {
+    display: none;
+  }
+  .lang-switcher__toggle {
+    padding: 6px 10px;
+  }
+  .lang-switcher__flag {
+    width: 18px;
+    height: 18px;
+  }
+  .hero__content {
+    padding-block: calc(var(--header-height) + 20px) 60px;
+    gap: 20px;
+  }
+  .hero__text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .btn--cta {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+  .ticker {
+    height: 50px;
+  }
+  .ticker__edge {
+    width: 40px;
+  }
+  .ticker__edge--left {
+    border-radius: 0 16px 0 0;
+  }
+  .ticker__edge--right {
+    border-radius: 16px 0 0 0;
+  }
+  .ticker__content,
+  .ticker__content-bottom {
+    gap: 30px;
+    padding-top: 14px;
+  }
+  .ticker__content span,
+  .ticker__content-bottom span {
+    font-size: 18px;
+    letter-spacing: 0.04em;
+  }
+  .ticker--bottom .ticker__edge--left {
+    border-radius: 0 0 16px 0;
+  }
+  .ticker--bottom .ticker__edge--right {
+    border-radius: 0 0 0 16px;
+  }
+  .title {
+    font-size: 32px;
+    padding: 60px 0 40px;
+  }
+  .contact-block {
+    gap: 20px;
+  }
+  .notebook {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-height: 380px;
+    border-radius: 14px 6px 6px 14px;
+  }
+  .notebook::before {
+    width: 20px;
+    background: repeating-linear-gradient(
+      to bottom,
+      #b0a89a 0px,
+      #b0a89a 8px,
+      #d5cfc4 8px,
+      #d5cfc4 12px,
+      #b0a89a 12px,
+      #b0a89a 20px,
+      #d5cfc4 20px,
+      #d5cfc4 24px
+    );
+  }
+  .notebook::after {
+    left: 4px;
+    width: 12px;
+    top: 14px;
+    height: calc(100% - 28px);
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 14px,
+      #000 14px,
+      #000 16px,
+      transparent 16px,
+      transparent 32px
+    );
+  }
+  .notebook-lines {
+    left: 30px;
+    top: 24px;
+    right: 12px;
+    bottom: 14px;
+  }
+  .notebook-lines .line {
+    height: 24px;
+  }
+  .notebook-content {
+    padding: 30px 20px 20px 44px;
+  }
+  .notebook-title {
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .notebook-list li {
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  .notebook-list li::before {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    margin-right: 12px;
+  }
+  .notebook-corner {
+    width: 24px;
+    height: 24px;
+  }
+  .contacts-card {
+    padding: 20px;
+    border-radius: 24px;
+    min-height: auto;
+  }
+  .contacts-card__title {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+  .contacts-card__phone {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  .contacts-card__phone span,
+  .contacts-card__phone a {
+    font-size: 18px;
+  }
+  .contacts-card__icon {
+    width: 28px;
+    height: 28px;
+  }
+  .contacts-card__text {
+    margin-bottom: 30px;
+  }
+  .contacts-card__text h3 {
+    font-size: 20px;
+  }
+  .contacts-card__text p {
+    font-size: 18px;
+  }
+  .contacts-card__text--bottom {
+    margin-bottom: 30px;
+  }
+  .contacts-card__chat {
+    width: 28px;
+    right: 20px;
+    top: 0;
+  }
+  .contacts-btn {
+    width: 100%;
+    max-width: 280px;
+    height: 56px;
+    font-size: 18px;
+    margin: 0 auto;
+  }
+  .contacts-card__logs {
+    display: none;
+  }
+  .supplier {
+    padding-top: 40px;
+    padding-bottom: 100px;
+  }
+  .supplier__card {
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
+  .supplier__text {
+    font-size: 20px;
+  }
+  .supplier__logo {
+    font-size: 32px;
+    text-align: center;
+  }
+  .image {
+    width: 100%;
+    margin-top: -30px;
+  }
+  .catalog {
+    margin-top: 40px;
+  }
+  .catalog__wrapper {
+    border-radius: 16px;
+    padding: 16px 0;
+  }
+  .catalog__sale {
+    width: 100px;
+    height: 100px;
+    top: -4px;
+    left: -4px;
+  }
+  .catalog__table th {
+    font-size: 22px;
+    padding: 12px 8px;
+  }
+  .catalog__table td {
+    font-size: 16px;
+    padding: 10px 8px;
+  }
+  .catalog__table th:nth-child(2),
+  .catalog__table td:nth-child(2),
+  .catalog__table th:nth-child(3),
+  .catalog__table td:nth-child(3) {
+    border-left-width: 2px;
+  }
+  .reviews {
+    padding-top: 20px;
+  }
+  .reviews__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .review-card {
+    padding: 24px 20px 20px;
+    border-radius: 20px;
+  }
+  .review-card__text {
+    font-size: 16px;
+  }
+  .review-card__avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    flex: 0 0 40px;
+  }
+  .review-card__name {
+    font-size: 16px;
+  }
+  .review-card__stars {
+    font-size: 16px;
+  }
+  .footer__card {
+    padding: 30px 20px;
+    border-radius: 24px;
+  }
+  .footer__top {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer__brand {
+    max-width: 100%;
+  }
+  .footer__logo {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  .footer__description {
+    font-size: 16px;
+  }
+  .footer__column h3 {
+    font-size: 22px;
+  }
+  .footer__column a,
+  .footer__column span {
+    font-size: 16px;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 14px;
+  }
+  .image2 img {
+    width: 100%;
+    padding-left: 0;
+    top: 0;
+  }
+  .scroll-top {
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 3px 0 var(--color-orange);
+  }
+  .scroll-top svg {
+    width: 20px;
+    height: 20px;
+  }
+  .scroll-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 0 var(--color-orange);
+  }
+  .scroll-top:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 var(--color-orange);
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    border-width: 1px;
+  }
+}
+
+/* ---- Мобильные (до 700px) — отзывы в 1 колонку, дополнительные правки ---- */
+@media (max-width: 700px) {
+  .reviews {
+    padding: 50px 0 70px;
+  }
+  .reviews__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .review-card {
+    padding: 28px 24px 24px;
+    border-radius: 20px;
+  }
+  .review-card__text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .review-card__avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 15px;
+    flex: 0 0 44px;
+  }
+  .review-card__name {
+    font-size: 16px;
+  }
+  .review-card__stars {
+    font-size: 16px;
+  }
+}
+
+/* ---- Маленькие телефоны (до 600px) ---- */
+@media (max-width: 600px) {
+  .header {
+    top: 12px;
+  }
+  .header__inner {
+    min-height: 60px;
+    padding: 10px 16px;
+    border-radius: 20px;
+  }
+  .header__logo {
+    font-size: 1rem;
+  }
+  .btn--contacts {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+  .lang-switcher__label {
+    display: none;
+  }
+  .hero__content {
+    gap: 24px;
+    padding-bottom: 100px;
+  }
+  .ticker {
+    height: 44px;
+  }
+  .ticker__edge {
+    width: 24px;
+  }
+  .ticker__content span {
+    font-family: var(--font-title);
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+}
+
+/* ---- Очень маленькие экраны (до 480px) ---- */
+@media (max-width: 480px) {
+  .header__inner {
+    padding: 0 12px;
+    min-height: 50px;
+  }
+  .header__logo {
+    font-size: 18px;
+  }
+  .btn--contacts {
+    padding: 4px 10px;
+    font-size: 0.65rem;
+    height: 32px;
+  }
+  .btn--contacts .btn__icon {
+    width: 12px;
+    height: 12px;
+  }
+  .lang-switcher__toggle {
+    padding: 4px 8px;
+    gap: 4px;
+    font-size: 0.7rem;
+  }
+  .lang-switcher__flag {
+    width: 16px;
+    height: 16px;
+  }
+  .lang-switcher__chevron {
+    width: 10px;
+    height: 10px;
+  }
+  .hero__text {
+    font-size: 0.9rem;
+  }
+  .btn--cta {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+  }
+  .title {
+    font-size: 26px;
+    padding: 40px 0 30px;
+  }
+  .notebook-title {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .notebook-list li {
+    font-size: 16px;
+    margin-bottom: 16px;
+    height: 20px;
+    line-height: 20px;
+  }
+  .notebook-list li::before {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    margin-right: 10px;
+  }
+  .contacts-card__title {
+    font-size: 28px;
+  }
+  .contacts-card__phone span,
+  .contacts-card__phone a {
+    font-size: 16px;
+  }
+  .contacts-card__text h3 {
+    font-size: 18px;
+  }
+  .contacts-card__text p {
+    font-size: 16px;
+  }
+  .contacts-btn {
+    font-size: 16px;
+    height: 48px;
+    max-width: 220px;
+  }
+  .supplier__text {
+    font-size: 17px;
+  }
+  .supplier__logo {
+    font-size: 26px;
+  }
+  .catalog__table th {
+    font-size: 18px;
+    padding: 10px 6px;
+  }
+  .catalog__table td {
+    font-size: 14px;
+    padding: 8px 6px;
+  }
+  .catalog__sale {
+    width: 70px;
+    height: 70px;
+  }
+  .review-card {
+    padding: 16px 14px 16px;
+  }
+  .review-card__text {
+    font-size: 14px;
+  }
+  .review-card__footer {
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 12px;
+  }
+  .review-card__avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+    flex: 0 0 36px;
+  }
+  .review-card__name {
+    font-size: 14px;
+  }
+  .review-card__stars {
+    font-size: 14px;
+  }
+  .footer__logo {
+    font-size: 28px;
+  }
+  .footer__description {
+    font-size: 14px;
+  }
+  .footer__column h3 {
+    font-size: 18px;
+  }
+  .footer__column a,
+  .footer__column span {
+    font-size: 14px;
+  }
+  .footer__bottom {
+    font-size: 12px;
+  }
+  .scroll-top {
+    width: 50px;
+    height: 50px;
+    bottom: 16px;
+    right: 16px;
+  }
+  .scroll-top svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ---- Экстремально маленькие (до 400px) ---- */
+@media (max-width: 400px) {
+  .review-card {
+    padding: 20px 18px 20px;
+  }
+  .review-card__text {
+    font-size: 15px;
+  }
 }
