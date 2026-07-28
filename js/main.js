@@ -27,9 +27,10 @@
       option.classList.add("lang-switcher__option--active");
       option.setAttribute("aria-selected", "true");
 
-      const flag = option.querySelector(".lang-switcher__flag");
       const toggleFlag = toggle.querySelector(".lang-switcher__flag");
-      toggleFlag.className = flag.className;
+
+      toggleFlag.src = option.querySelector("img").src;
+      toggleFlag.alt = option.querySelector("img").alt;
 
       label.textContent = text;
       document.documentElement.lang = lang;
@@ -179,18 +180,43 @@ const translations = {
     quality: "We stand for quality.",
   },
 };
+
 function setLanguage(lang) {
   document.documentElement.lang = lang;
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.dataset.i18n;
-
-    if (translations[lang][key]) {
+    if (translations[lang] && translations[lang][key]) {
       element.innerHTML = translations[lang][key];
     }
   });
 
   localStorage.setItem("language", lang);
+
+  const selectedOption = document.querySelector(
+    `.lang-switcher__option[data-lang="${lang}"]`,
+  );
+
+  if (selectedOption) {
+    const toggleFlag = document.querySelector(
+      ".lang-switcher__toggle .lang-switcher__flag",
+    );
+
+    const optionFlag = selectedOption.querySelector("img");
+    const optionText =
+      selectedOption.querySelector("span:last-child").textContent;
+
+    toggleFlag.src = optionFlag.src;
+    toggleFlag.alt = optionFlag.alt;
+
+    document.querySelector(".lang-switcher__label").textContent = optionText;
+
+    document
+      .querySelectorAll(".lang-switcher__option")
+      .forEach((opt) => opt.classList.remove("lang-switcher__option--active"));
+
+    selectedOption.classList.add("lang-switcher__option--active");
+  }
 }
 const options = document.querySelectorAll(".lang-switcher__option");
 

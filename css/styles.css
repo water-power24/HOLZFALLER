@@ -241,33 +241,7 @@ ul {
   background-size: cover;
   background-position: center;
 }
-.lang-switcher__flag--ru {
-  background-image: linear-gradient(
-    to bottom,
-    #fff 33.33%,
-    #0039a6 33.33%,
-    #0039a6 66.66%,
-    #d52b1e 66.66%
-  );
-}
-.lang-switcher__flag--en {
-  background:
-    linear-gradient(
-      to bottom,
-      transparent 40%,
-      #fff 40%,
-      #fff 60%,
-      transparent 60%
-    ),
-    linear-gradient(
-      to right,
-      transparent 40%,
-      #fff 40%,
-      #fff 60%,
-      transparent 60%
-    ),
-    #012169;
-}
+
 .lang-switcher__menu {
   position: absolute;
   top: calc(100% + 8px);
