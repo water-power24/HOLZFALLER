@@ -5,7 +5,7 @@ const translations = {
     catalog: "Каталог",
     contacts: "Контакты",
     heroText:
-      "<strong>HOLZFFORMA</strong> — надёжность, проверенная делом. Высокое качество, прочные материалы и безупречная производительность делают эти пилы отличным выбором как для профессионалов, так и для тех, кто ценит надёжный инструмент.",
+      "Мы — надёжность, проверенная делом. Высокое качество, прочные материалы и безупречная производительность делают эти пилы отличным выбором как для профессионалов, так и для тех, кто ценит надёжный инструмент.",
     learnMore: "Узнать подробнее",
     contactTitle: "Хотите связаться с нами?",
     whyUs: "Почему выбирают именно нас",
@@ -16,10 +16,11 @@ const translations = {
     prices: "Низкие цены",
     ourContacts: "Наши контакты",
     phone: "Номер телефона:",
-    writeWhatsapp: "Напишите нам в WhatsApp —",
-    whatsappDescription:
-      "ответим быстро, проконсультируем<br>и поможем подобрать подходящую<br>пилу.",
-    priceMessage: "Прайс и наши образцы отправим вам<br>в ЛС или WhatsApp",
+    writeEmail: "Напишите нам на почту —",
+    emailDescription:
+      "ответим быстро, проконсультируем<br />и поможем подобрать подходящую<br />пилу.",
+    email: "Почта",
+    priceMessage: "Прайс и наши образцы отправим вам<br />в ЛС или на почту",
     write: "Написать",
     supplierTitle: "Мы — ваш надёжный поставщик",
     supplierText:
@@ -55,7 +56,7 @@ const translations = {
     catalog: "Catalog",
     contacts: "Contacts",
     heroText:
-      "<strong>HOLZFFORMA</strong> — reliability proven in practice. High quality, durable materials and excellent performance make these saws the perfect choice for professionals and everyone who values reliable tools.",
+      "We are reliability proven in practice. High quality, durable materials and flawless performance make these saws an excellent choice for professionals and for those who value reliable tools.",
     learnMore: "Learn More",
     contactTitle: "Want to contact us?",
     whyUs: "Why choose us",
@@ -66,11 +67,14 @@ const translations = {
     prices: "Low prices",
     ourContacts: "Our contacts",
     phone: "Phone:",
-    writeWhatsapp: "Message us on WhatsApp —",
-    whatsappDescription:
-      "We'll reply quickly,<br>answer your questions<br>and help you choose the right saw.",
-    priceMessage: "We'll send our price list and samples<br>via DM or WhatsApp",
+    writeEmail: "Write to us by email —",
+    emailDescription:
+      "we'll reply quickly, consult<br />and help you choose the right<br />saw.",
+    email: "Email",
+    priceMessage:
+      "We'll send you the price list and samples<br />via DM or email",
     write: "Write to us",
+
     supplierTitle: "Your reliable supplier",
     supplierText:
       "We supply premium-quality band saw blades for wood and metal cutting.<br><br>Available in a wide range of sizes and tooth types. Our blades are made of durable tool steel, ensuring precise cuts, high wear resistance and long service life.",
@@ -103,6 +107,12 @@ const translations = {
 };
 
 // ======================== Установка языка ========================
+
+const flagPaths = {
+  ru: "images/flags/россия.webp",
+  en: "images/flags/великобритания.avif",
+};
+
 function setLanguage(lang) {
   document.documentElement.lang = lang;
 
@@ -121,8 +131,8 @@ function setLanguage(lang) {
   const label = document.querySelector(".lang-switcher__label");
 
   if (toggleFlag) {
-    toggleFlag.className = "lang-switcher__flag";
-    toggleFlag.classList.add(`lang-switcher__flag--${lang}`);
+    toggleFlag.src = flagPaths[lang] || flagPaths.ru;
+    toggleFlag.alt = lang === "ru" ? "Русский" : "English";
   }
 
   if (label) {
@@ -245,3 +255,126 @@ if (header) {
     header.classList.toggle("scrolled", window.scrollY > 3350);
   });
 }
+
+// ======================== КОПИРОВАНИЕ НОМЕРА ТЕЛЕФОНА ========================
+let copyTimeout = null;
+
+function hideTooltip(wrapper) {
+  const tooltip = wrapper.querySelector(".copy-tooltip");
+  if (tooltip) {
+    tooltip.style.opacity = 0;
+    tooltip.style.visibility = "hidden";
+    if (tooltip.textContent === "Скопировано!") {
+      tooltip.textContent = "Скопировать";
+    }
+  }
+}
+
+function resetTooltipText(wrapper) {
+  const tooltip = wrapper.querySelector(".copy-tooltip");
+  if (tooltip && tooltip.textContent === "Скопировано!") {
+    tooltip.textContent = "Скопировать";
+  }
+}
+
+function copyPhoneNumber(text, triggerElement) {
+  const wrapper = triggerElement.closest(".phone-wrapper");
+  const tooltip = wrapper.querySelector(".copy-tooltip");
+
+  if (copyTimeout) {
+    clearTimeout(copyTimeout);
+    copyTimeout = null;
+  }
+
+  if (navigator.clipboard) {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        showCopyFeedback(wrapper, tooltip);
+      })
+      .catch(() => {
+        fallbackCopy(text, wrapper, tooltip);
+      });
+  } else {
+    fallbackCopy(text, wrapper, tooltip);
+  }
+}
+
+function fallbackCopy(text, wrapper, tooltip) {
+  const input = document.createElement("input");
+  input.value = text;
+  input.style.position = "fixed";
+  input.style.opacity = "0";
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand("copy");
+  input.remove();
+  showCopyFeedback(wrapper, tooltip);
+}
+
+function showCopyFeedback(wrapper, tooltip) {
+  tooltip.textContent = "Скопировано!";
+  tooltip.style.opacity = 1;
+  tooltip.style.visibility = "visible";
+
+  copyTimeout = setTimeout(() => {
+    tooltip.textContent = "Скопировать";
+    if (!wrapper.matches(":hover")) {
+      tooltip.style.opacity = 0;
+      tooltip.style.visibility = "hidden";
+    }
+    copyTimeout = null;
+  }, 1500);
+}
+
+// ---- Клик по иконке копирования ----
+document.querySelectorAll(".copy-btn").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    const text = this.dataset.clipboard;
+    if (text) copyPhoneNumber(text, this);
+  });
+});
+
+// ---- Клик по тултипу (сама плашка) ----
+document.querySelectorAll(".copy-tooltip").forEach((tooltip) => {
+  tooltip.addEventListener("click", function (e) {
+    e.stopPropagation();
+    const text = this.dataset.clipboard;
+    if (text) copyPhoneNumber(text, this);
+  });
+});
+
+// ---- Показ/скрытие при наведении ----
+document.querySelectorAll(".phone-wrapper").forEach((wrapper) => {
+  wrapper.addEventListener("mouseenter", function () {
+    const tooltip = this.querySelector(".copy-tooltip");
+    if (tooltip && tooltip.textContent === "Скопировать") {
+      tooltip.style.opacity = 1;
+      tooltip.style.visibility = "visible";
+    }
+  });
+
+  wrapper.addEventListener("mouseleave", function () {
+    const tooltip = this.querySelector(".copy-tooltip");
+    if (tooltip && tooltip.textContent === "Скопировать" && !copyTimeout) {
+      tooltip.style.opacity = 0;
+      tooltip.style.visibility = "hidden";
+    }
+  });
+});
+
+// ---- Скрытие при клике вне блока ----
+document.addEventListener("click", function (e) {
+  const wrapper = e.target.closest(".phone-wrapper");
+  if (!wrapper) {
+    document.querySelectorAll(".copy-tooltip").forEach((t) => {
+      t.style.opacity = 0;
+      t.style.visibility = "hidden";
+    });
+    if (copyTimeout) {
+      clearTimeout(copyTimeout);
+      copyTimeout = null;
+    }
+  }
+});

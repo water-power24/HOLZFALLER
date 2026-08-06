@@ -111,11 +111,12 @@
       <section class="hero" id="home">
         <div class="hero__overlay"></div>
         <div class="hero__content container">
+          <strong>HOLZFÄLLER</strong>
           <p class="hero__text" data-i18n="heroText">
-            <strong>HOLZFFORMA</strong> — надёжность, проверенная делом. Высокое
-            качество, прочные материалы и безупречная производительность делают
-            эти пилы отличным выбором как для профессионалов, так и для тех, кто
-            ценит надёжный инструмент.
+            Мы — надёжность, проверенная делом. Высокое качество, прочные
+            материалы и безупречная производительность делают эти пилы отличным
+            выбором как для профессионалов, так и для тех, кто ценит надёжный
+            инструмент.
           </p>
           <a href="#about" class="btn btn--cta" data-i18n="learnMore"
             >Узнать подробнее</a
@@ -182,13 +183,49 @@
               </div>
               <div class="notebook-corner"></div>
             </div>
+
             <div class="contacts-card">
               <h2 class="contacts-card__title" data-i18n="ourContacts">
                 Наши контакты
               </h2>
               <div class="contacts-card__phone">
                 <span data-i18n="phone">Номер телефона:</span>
-                <a href="tel:+79192707805">+7 (919) 270-78-05</a>
+                <div class="phone-wrapper">
+                  <a href="tel:+79192707805" class="phone-number"
+                    >+7 (919) 270-78-05</a
+                  >
+                  <button
+                    class="copy-btn"
+                    aria-label="Скопировать номер"
+                    data-clipboard="+79192707805"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect
+                        x="9"
+                        y="9"
+                        width="13"
+                        height="13"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path
+                        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                      ></path>
+                    </svg>
+                  </button>
+                  <span class="copy-tooltip" data-clipboard="+79192707805"
+                    >Скопировать</span
+                  >
+                </div>
                 <svg
                   class="contacts-card__icon"
                   width="40"
@@ -204,22 +241,39 @@
                 </svg>
               </div>
               <div class="contacts-card__text">
-                <h3 data-i18n="writeWhatsapp">Напишите нам в WhatsApp —</h3>
-                <p data-i18n="whatsappDescription">
-                  ответим быстро, проконсультируем<br />и поможем подобрать
-                  подходящую<br />пилу.
+                <h3 data-i18n="writeEmail">Напишите нам на почту —</h3>
+                <p data-i18n="emailDescription">
+                  ответим быстро, проконсультируем<br />
+                  и поможем подобрать подходящую<br />
+                  пилу.
                 </p>
               </div>
               <div class="contacts-card__text contacts-card__text--bottom">
-                <h3 data-i18n="priceMessage">
-                  Прайс и наши образцы отправим вам<br />в ЛС или WhatsApp
-                </h3>
+                <a
+                  href="https://mail.yandex.ru/compose?to=Bazon.32@mail.ru&subject=Запрос%20с%20сайта&body=Здравствуйте!%20Меня%20интересуют%20ваши%20пилы."
+                  class="email-link"
+                  style="
+                    display: inline-block;
+                    margin-top: 12px;
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: #000;
+                    text-decoration: underline;
+                  "
+                >
+                  Bazon.32@mail.ru
+                </a>
                 <img src="images/chat.svg" alt="" class="contacts-card__chat" />
               </div>
-              <a href="#contacts" class="contacts-btn"
-                ><span data-i18n="write">Написать</span></a
+              <a
+                href="https://mail.yandex.ru/compose?to=Bazon.32@mail.ru&subject=Запрос%20с%20сайта&body=Здравствуйте!%20Меня%20интересуют%20ваши%20пилы."
+                class="contacts-btn"
+                target="_blank"
               >
+                <span data-i18n="write">Написать</span>
+              </a>
             </div>
+
             <div class="contacts-card__logs">
               <img src="images/wood.png" alt="" />
             </div>
@@ -493,8 +547,47 @@
               </div>
               <div class="footer__column">
                 <h3 data-i18n="footerContacts">Контакты</h3>
-                <a href="tel:+79192707805">+7 (919) 270-78-05</a>
-                <a href="#" data-i18n="whatsapp">WhatsApp</a>
+                <div class="phone-wrapper footer-phone">
+                  <a href="tel:+79192707805" class="phone-number"
+                    >+7 (919) 270-78-05</a
+                  >
+                  <button
+                    class="copy-btn"
+                    aria-label="Скопировать номер"
+                    data-clipboard="+79192707805"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect
+                        x="9"
+                        y="9"
+                        width="13"
+                        height="13"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path
+                        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                      ></path>
+                    </svg>
+                  </button>
+                  <span class="copy-tooltip" data-clipboard="+79192707805"
+                    >Скопировать</span
+                  >
+                </div>
+                <a
+                  href="https://mail.yandex.ru/compose?to=Bazon.32@mail.ru&subject=Запрос%20с%20сайта&body=Здравствуйте!%20Меня%20интересуют%20ваши%20пилы."
+                  data-i18n="email"
+                  >Bazon.32@mail.ru</a
+                >
                 <a href="#" data-i18n="telegram">Telegram</a>
                 <span data-i18n="workingHours">Ежедневно 09:00–20:00</span>
               </div>
